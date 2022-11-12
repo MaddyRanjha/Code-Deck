@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 
 const StyledLeftComponent = styled.div`
-  position: absolute;
+  position: fixed;
   top:0;
   left:0;
   width: 40%;
