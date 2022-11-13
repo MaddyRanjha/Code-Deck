@@ -3,11 +3,16 @@ import { Header, Heading } from '../Modal'
 import {IoCloseSharp} from 'react-icons/io5'
 import styled from 'styled-components'
 
-const ClickButton =styled.div`
+export const ClickButton =styled.div`
 font-size: 0.5rem;
 color:white;
 display:flex;
 align-item:center;
+justify-content: center;
+margin:1rem;
+`
+export const Btn = styled.button`
+padding:0.1rem;
 `
 
 const NewFolder = () => {
@@ -22,7 +27,7 @@ const NewFolder = () => {
       
       
       <ClickButton>
-      <button>Create New Folder</button>
+              <Btn>Create New Folder</Btn>
       </ClickButton>
     </>
   )
