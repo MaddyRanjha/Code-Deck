@@ -1,8 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
-import {NewFolder, NewPlayground, NewPlaygroundAndFolder} from './ModalTypes/'
-
-
+import { NewFolder, NewPlayground, NewPlaygroundAndFolder, EditFolder, EditPlaygroundTitle } from './ModalTypes'
+import { ModalContext } from '../context/ModalContext'
 const ModalContainer = styled.div`
     position: fixed;
     top: 0;
@@ -36,23 +35,27 @@ export const Heading = styled.h3`
     font-weight: 700;
   }
 `
-function Modal() {
-    const type = 3;
 
-    // ModalTypes
-    // 1: New Folder
-    // 2: New Playground
-    // 3: New Playground and Folder
-    // 4: Rename 
-    return (
-      <ModalContainer>
-        <ModalContent>
-          {type === 1 && <NewFolder />}
-          {type === 2 && <NewPlayground />}
-          {type === 3 && <NewPlaygroundAndFolder />}
-        </ModalContent>
-      </ModalContainer>
-    )
+const Modal = () => {
+  const { modalType } = useContext(ModalContext)
+
+  // ModalTypes
+  // 1: New Folder
+  // 2: New Playground
+  // 3: New Playground and Folder
+  // 4: Rename Folder
+  // 5: Rename Playground
+  return (
+    <ModalContainer>
+      <ModalContent>
+        {modalType === 1 && <NewFolder />}
+        {modalType === 2 && <NewPlayground />}
+        {modalType === 3 && <NewPlaygroundAndFolder />}
+        {modalType === 4 && <EditFolder />}
+        {modalType === 5 && <EditPlaygroundTitle />}
+      </ModalContent>
+    </ModalContainer>
+  )
 }
 
-export default Modal
+export default Modal;

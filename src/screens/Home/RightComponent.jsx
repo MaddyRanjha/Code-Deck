@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
 import { IoTrashOutline } from 'react-icons/io5'
 import { BiEditAlt } from 'react-icons/bi'
 import logo from '../../assets/logo-small.png'
+import { ModalContext } from '../../context/ModalContext'
 
 const StyledRightComponent = styled.div`
     position: absolute;
@@ -82,16 +83,15 @@ const Logo = styled.img`
     width: 70px;
     margin-right: 1rem;
 `
-
-
-function RightComponent() {
+const RightComponent = () => {
+  const {setModal} = useContext(ModalContext);
   return (
     <StyledRightComponent>
       <Header>
         <Heading size="large">
           My <span>Playground</span>
         </Heading>
-        <AddFolder> <span>+</span> New Folder</AddFolder>
+        <AddFolder onClick={() => {setModal(true, 1)}}> <span>+</span> New Folder</AddFolder>
       </Header>
       <hr />
 
@@ -104,8 +104,8 @@ function RightComponent() {
               </Heading>
               <FolderIcons>
                 <IoTrashOutline />
-                <BiEditAlt />
-                <AddFolder><span>+</span> New Playground</AddFolder>
+                <BiEditAlt onClick={() => {setModal(true, 4)}} />
+                <AddFolder onClick={() => {setModal(true, 2)}}><span>+</span> New Playground</AddFolder>
               </FolderIcons>
             </Header>
 
@@ -122,7 +122,7 @@ function RightComponent() {
                     </CardContainer>
                     <FolderIcons>
                       <IoTrashOutline />
-                      <BiEditAlt />
+                      <BiEditAlt onClick={() => {setModal(true, 5)}}/>
                     </FolderIcons>
                   </Card>
                 ))
