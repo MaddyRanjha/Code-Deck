@@ -37,8 +37,8 @@ export const Heading = styled.h3`
 `
 
 const Modal = () => {
-  const { modalType } = useContext(ModalContext)
-
+  const { isOpenModal } = useContext(ModalContext)
+  const {modalType} = isOpenModal;
   // ModalTypes
   // 1: New Folder
   // 2: New Playground
@@ -58,4 +58,4 @@ const Modal = () => {
   )
 }
 
-export default Modal;
+export default Modal

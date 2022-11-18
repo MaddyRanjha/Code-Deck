@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Playground() {
+const Playground = () => {
   return (
     <div>Playground</div>
   )
